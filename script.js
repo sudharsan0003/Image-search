@@ -11,7 +11,7 @@ let keyWord = '';
 let page = 1;
 
 async function searchImages() {
-  keyWord = searchInput.values;
+  keyWord = searchInput.value;
   const url = `https://api.unsplash.com/search/photos?pages=${page}&query=${keyWord}&client_id=${accessKey}&per_page=12`;
 
   const response = await fetch(url);
@@ -19,7 +19,6 @@ async function searchImages() {
   if (page === 1) {
     searchResult.innerHTML = '';
   }
-
   const results = data.results;
   results.map((result) => {
     const image = document.createElement('img');
